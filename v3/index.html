@@ -1,0 +1,775 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600&display=swap');
+
+  .v3 * { box-sizing: border-box; margin: 0; padding: 0; }
+  .v3 {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #fff;
+    color: #1a1a1a;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* NAV */
+  .v3-nav {
+    background: #fff;
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 62px;
+    border-bottom: 1px solid #EAEAEA;
+  }
+  .v3-logo-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800; font-size: 18px;
+    color: #164E6B; letter-spacing: -0.02em;
+  }
+  .v3-logo-text span { color: #E07B1F; }
+  .v3-logo-sub {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #aaa;
+    display: block; margin-top: -2px;
+  }
+  .v3-nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .v3-nav-links a {
+    text-decoration: none; font-size: 13.5px;
+    font-weight: 500; color: #444;
+  }
+  .v3-nav-links a:hover { color: #164E6B; }
+  .v3-nav-cta {
+    background: #164E6B; color: #fff;
+    border: none; border-radius: 6px;
+    padding: 9px 20px; font-size: 13px; font-weight: 600;
+    cursor: pointer; font-family: 'Source Sans 3', sans-serif;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  /* HERO — fondo blanco con acento izquierdo */
+  .v3-hero {
+    background: #fff;
+    padding: 4.5rem 2.5rem 4rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
+    border-bottom: 4px solid #E07B1F;
+  }
+  .v3-hero-pill {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: #FEF3E8; color: #B05A0E;
+    border-radius: 20px; padding: 5px 14px;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.04em; margin-bottom: 1.2rem;
+  }
+  .v3-hero h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5rem; font-weight: 800;
+    color: #164E6B; line-height: 1.15;
+    margin-bottom: 1.1rem; letter-spacing: -0.02em;
+  }
+  .v3-hero h1 strong { color: #E07B1F; font-weight: 800; }
+  .v3-hero p {
+    font-size: 15px; color: #555; line-height: 1.75;
+    margin-bottom: 2rem; max-width: 460px;
+  }
+  .v3-hero-btns { display: flex; gap: 12px; }
+  .v3-btn-fill {
+    background: #164E6B; color: #fff;
+    border: none; border-radius: 6px;
+    padding: 11px 22px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: 'Source Sans 3', sans-serif;
+  }
+  .v3-btn-border {
+    background: #fff; color: #164E6B;
+    border: 2px solid #164E6B; border-radius: 6px;
+    padding: 11px 22px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: 'Source Sans 3', sans-serif;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .v3-hero-right {
+    background: #F4F8FB;
+    border-radius: 12px;
+    padding: 2rem 1.8rem;
+    border-top: 4px solid #164E6B;
+  }
+  .v3-hero-right .hr-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: #164E6B; margin-bottom: 1.1rem;
+  }
+  .v3-audience-list { display: flex; flex-direction: column; gap: 10px; }
+  .v3-aud {
+    display: flex; align-items: center; gap: 11px;
+    padding: 10px 12px;
+    background: #fff; border-radius: 8px;
+    border: 1px solid #DDE8EF;
+  }
+  .v3-aud-icon {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: #164E6B;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; color: #fff; font-size: 16px;
+  }
+  .v3-aud-icon.orange { background: #E07B1F; }
+  .v3-aud-icon.teal { background: #147A6B; }
+  .v3-aud-icon.purple { background: #5A3890; }
+  .v3-aud-icon.green { background: #2E7D32; }
+  .v3-aud span { font-size: 13px; font-weight: 600; color: #1a1a1a; }
+  .v3-aud small { font-size: 11.5px; color: #777; display: block; }
+
+  /* SECCIÓN BLANCA */
+  .v3-sec-white {
+    background: #fff;
+    padding: 3.5rem 2.5rem;
+  }
+  /* SECCIÓN COLOR — azul oscuro */
+  .v3-sec-blue {
+    background: #164E6B;
+    padding: 3.5rem 2.5rem;
+  }
+  /* SECCIÓN COLOR — naranja */
+  .v3-sec-orange {
+    background: #E07B1F;
+    padding: 3.5rem 2.5rem;
+  }
+  /* SECCIÓN COLOR — teal */
+  .v3-sec-teal {
+    background: #0F5C50;
+    padding: 3.5rem 2.5rem;
+  }
+
+  .v3-sec-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .lbl-blue { color: #E07B1F; }
+  .lbl-white { color: #164E6B; }
+  .lbl-on-blue { color: #FABE7A; }
+  .lbl-on-orange { color: #fff; opacity: 0.75; }
+  .lbl-on-teal { color: #7DD4C7; }
+
+  .v3-sec-h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.75rem; font-weight: 800;
+    line-height: 1.2; margin: 6px 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .h2-dark { color: #164E6B; }
+  .h2-white { color: #fff; }
+  .h2-on-orange { color: #fff; }
+
+  .v3-sec-p {
+    font-size: 14px; line-height: 1.75; max-width: 560px;
+  }
+  .p-muted { color: #666; }
+  .p-light { color: rgba(255,255,255,0.72); }
+
+  /* QUIÉNES SOMOS — sección blanca */
+  .v3-team-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    margin-top: 2rem;
+  }
+  .v3-tc {
+    border: 1.5px solid #DDE8EF;
+    border-radius: 10px; overflow: hidden;
+  }
+  .v3-tc-top {
+    background: #164E6B;
+    padding: 1.4rem 1.5rem;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .v3-tc-top.orange-top { background: #E07B1F; }
+  .v3-tc-av {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 17px; font-weight: 800; color: #fff;
+    flex-shrink: 0;
+  }
+  .v3-tc-top h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px; font-weight: 700; color: #fff;
+  }
+  .v3-tc-top .role {
+    font-size: 11px; color: rgba(255,255,255,0.75);
+    font-weight: 500; margin-top: 2px;
+  }
+  .v3-tc-body {
+    background: #fff; padding: 1.2rem 1.5rem;
+  }
+  .v3-tc-body p { font-size: 13px; color: #555; line-height: 1.65; }
+
+  .v3-values-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    margin-top: 2rem;
+  }
+  .v3-val {
+    background: #fff;
+    border-radius: 10px; padding: 1.3rem 1.2rem;
+    border-top: 4px solid #E07B1F;
+    border-left: 1px solid #EAEAEA;
+    border-right: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA;
+  }
+  .v3-val i { font-size: 24px; color: #E07B1F; margin-bottom: 10px; display: block; }
+  .v3-val h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px; font-weight: 700; color: #164E6B;
+    margin-bottom: 5px;
+  }
+  .v3-val p { font-size: 12px; color: #777; line-height: 1.6; }
+
+  /* SERVICIOS — sección azul */
+  .v3-svc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px; margin-top: 2rem;
+  }
+  .v3-svc-card {
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 10px; padding: 1.4rem 1.3rem;
+    cursor: pointer;
+  }
+  .v3-svc-card:hover { background: rgba(255,255,255,0.15); }
+  .v3-svc-card i {
+    font-size: 26px; color: #FABE7A;
+    margin-bottom: 12px; display: block;
+  }
+  .v3-svc-card h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14.5px; font-weight: 700; color: #fff;
+    margin-bottom: 6px; line-height: 1.3;
+  }
+  .v3-svc-card p { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+  .v3-svc-link {
+    font-size: 12px; color: #FABE7A;
+    margin-top: 10px; display: flex; align-items: center; gap: 4px;
+    font-weight: 600;
+  }
+
+  /* ATENCIONES — sección blanca */
+  .v3-at-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin-top: 2rem;
+  }
+  .v3-at {
+    border-radius: 10px; overflow: hidden;
+    border: 1.5px solid #DDE8EF;
+  }
+  .v3-at-hd {
+    padding: 1rem 1.3rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hd-blue { background: #164E6B; }
+  .hd-orange { background: #E07B1F; }
+  .hd-teal { background: #0F5C50; }
+  .v3-at-hd i { font-size: 20px; color: #fff; }
+  .v3-at-hd h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px; font-weight: 700; color: #fff;
+  }
+  .v3-at-bd { background: #fff; padding: 1rem 1.3rem; }
+  .v3-at-bd ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .v3-at-bd li {
+    font-size: 12.5px; color: #444; line-height: 1.5;
+    display: flex; gap: 8px; align-items: flex-start;
+  }
+  .v3-at-bd li::before {
+    content: ''; display: inline-block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #E07B1F; flex-shrink: 0; margin-top: 5px;
+  }
+
+  /* ORIENTACIONES — sección naranja */
+  .v3-orient-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 14px; margin-top: 2rem;
+  }
+  .v3-or {
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px; padding: 1.3rem 1.4rem;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .v3-or-num {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem; font-weight: 800;
+    color: rgba(255,255,255,0.22); flex-shrink: 0;
+    line-height: 1; width: 40px; text-align: right;
+  }
+  .v3-or h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14.5px; font-weight: 700; color: #fff;
+    margin-bottom: 4px;
+  }
+  .v3-or p { font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+
+  /* CAPACITACIÓN — sección teal */
+  .v3-cap-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-top: 2rem;
+  }
+  .v3-cap-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px; padding: 1.5rem 1.5rem;
+  }
+  .v3-cap-card i {
+    font-size: 28px; color: #7DD4C7;
+    margin-bottom: 12px; display: block;
+  }
+  .v3-cap-card h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px;
+  }
+  .v3-cap-card p { font-size: 12.5px; color: rgba(255,255,255,0.7); line-height: 1.65; }
+  .v3-cap-tag {
+    display: inline-block; margin-top: 10px;
+    background: rgba(125,212,199,0.25);
+    color: #7DD4C7; border-radius: 20px;
+    padding: 4px 12px; font-size: 11.5px; font-weight: 600;
+  }
+
+  /* NOTICIAS — blanca */
+  .v3-news-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin-top: 2rem;
+  }
+  .v3-news {
+    border: 1.5px solid #EAEAEA;
+    border-radius: 10px; overflow: hidden;
+    background: #fff;
+  }
+  .v3-news-bar { height: 5px; }
+  .nb-1 { background: #164E6B; }
+  .nb-2 { background: #E07B1F; }
+  .nb-3 { background: #0F5C50; }
+  .v3-news-bd { padding: 1.2rem 1.3rem; }
+  .v3-news-tag {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #E07B1F; margin-bottom: 6px;
+  }
+  .v3-news-bd h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px; font-weight: 700; color: #164E6B;
+    line-height: 1.35; margin-bottom: 6px;
+  }
+  .v3-news-bd p { font-size: 12px; color: #777; line-height: 1.55; }
+  .v3-news-date {
+    font-size: 11px; color: #bbb;
+    margin-top: 10px; display: flex; align-items: center; gap: 5px;
+  }
+
+  /* CONTACTO — azul oscuro */
+  .v3-contact-wrap {
+    display: grid; grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 2.5rem; margin-top: 2.5rem;
+  }
+  .v3-contact-brand {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.4rem; font-weight: 800;
+    color: #fff; margin-bottom: 8px; letter-spacing: -0.02em;
+  }
+  .v3-contact-brand span { color: #FABE7A; }
+  .v3-contact-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+  .v3-socials { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+  .v3-soc-btn {
+    border: 1px solid rgba(255,255,255,0.28);
+    color: rgba(255,255,255,0.8); border-radius: 6px;
+    padding: 6px 14px; font-size: 12px; font-weight: 500;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .v3-contact-col h5 {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: #FABE7A; margin-bottom: 14px;
+  }
+  .v3-ci {
+    display: flex; gap: 9px; align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .v3-ci i { font-size: 15px; color: rgba(255,255,255,0.45); flex-shrink: 0; margin-top: 2px; }
+  .v3-ci span { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.55; }
+  .v3-ci a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 13px; }
+  .v3-wa-btn {
+    margin-top: 10px;
+    background: #25D366; color: #fff; border: none;
+    border-radius: 6px; padding: 9px 18px;
+    font-size: 13px; font-weight: 600;
+    cursor: pointer; font-family: 'Source Sans 3', sans-serif;
+    display: flex; align-items: center; gap: 7px;
+  }
+
+  .v3-footer {
+    background: #0D3345;
+    padding: 1rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .v3-footer span { font-size: 11.5px; color: rgba(255,255,255,0.3); }
+
+  .v3-divider-orange {
+    height: 5px; background: #E07B1F;
+  }
+  .v3-divider-blue {
+    height: 5px; background: #164E6B;
+  }
+</style>
+
+<h2 class="sr-only">Tercera propuesta de diseño web para Psinergia Humana — secciones en contraste blanco y color sólido</h2>
+
+<div class="v3">
+
+  <!-- NAV -->
+  <nav class="v3-nav">
+    <div>
+      <div class="v3-logo-text">Psinergia <span>Humana</span></div>
+      <span class="v3-logo-sub">Consultores · Convivencia y Psicoeducación</span>
+    </div>
+    <ul class="v3-nav-links">
+      <li><a href="#">Quiénes somos</a></li>
+      <li><a href="#">Servicios</a></li>
+      <li><a href="#">Atenciones</a></li>
+      <li><a href="#">Capacitación</a></li>
+      <li><a href="#">Noticias</a></li>
+    </ul>
+    <button class="v3-nav-cta" onclick="sendPrompt('Quiero contactar a Psinergia Humana')">
+      <i class="ti ti-calendar" aria-hidden="true"></i> Agendar asesoría
+    </button>
+  </nav>
+
+  <!-- HERO — blanco -->
+  <section class="v3-hero">
+    <div>
+      <div class="v3-hero-pill">
+        <i class="ti ti-map-pin" aria-hidden="true" style="font-size:13px"></i>
+        La Serena · Chile
+      </div>
+      <h1>Herramientas para comunidades educativas que <strong>quieren mejorar</strong></h1>
+      <p>Psinergia Humana asesora colegios, docentes, familias y estudiantes con un enfoque psicoeducativo integral, co-responsable y basado en evidencia.</p>
+      <div class="v3-hero-btns">
+        <button class="v3-btn-fill" onclick="sendPrompt('Ver servicios de Psinergia Humana')">Ver servicios</button>
+        <button class="v3-btn-border" onclick="sendPrompt('Cómo contactar a Psinergia Humana')">
+          <i class="ti ti-mail" aria-hidden="true"></i> Contactarnos
+        </button>
+      </div>
+    </div>
+    <div class="v3-hero-right">
+      <div class="hr-title">Trabajamos con</div>
+      <div class="v3-audience-list">
+        <div class="v3-aud">
+          <div class="v3-aud-icon"><i class="ti ti-school" aria-hidden="true"></i></div>
+          <div><span>Colegios y directivos</span><small>Diagnóstico y acompañamiento institucional</small></div>
+        </div>
+        <div class="v3-aud">
+          <div class="v3-aud-icon orange"><i class="ti ti-users" aria-hidden="true"></i></div>
+          <div><span>Docentes y convivencia</span><small>Mentoría y capacitación en aula</small></div>
+        </div>
+        <div class="v3-aud">
+          <div class="v3-aud-icon teal"><i class="ti ti-home-heart" aria-hidden="true"></i></div>
+          <div><span>Padres y apoderados</span><small>Parentalidad formativa y escuelas de familia</small></div>
+        </div>
+        <div class="v3-aud">
+          <div class="v3-aud-icon purple"><i class="ti ti-star" aria-hidden="true"></i></div>
+          <div><span>Niños, niñas y jóvenes</span><small>Atención psicoeducativa individual y grupal</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="v3-divider-orange"></div>
+
+  <!-- QUIÉNES SOMOS — blanco -->
+  <section class="v3-sec-white">
+    <div class="v3-sec-label lbl-white">Quiénes somos</div>
+    <h2 class="v3-sec-h2 h2-dark">El equipo detrás de Psinergia Humana</h2>
+    <p class="v3-sec-p p-muted">Dos psicólogos con amplia trayectoria en contextos educativos chilenos, comprometidos con el bienestar de las comunidades escolares.</p>
+    <div class="v3-team-grid">
+      <div class="v3-tc">
+        <div class="v3-tc-top">
+          <div class="v3-tc-av">XC</div>
+          <div>
+            <h4>Ps. Ximena Catalán Badilla</h4>
+            <div class="role">Co-directora · Psicóloga</div>
+          </div>
+        </div>
+        <div class="v3-tc-body">
+          <p>Especializada en convivencia escolar, disciplina formativa y trabajo sistémico con equipos educativos y familias. Enfoque comunitario y contextual.</p>
+        </div>
+      </div>
+      <div class="v3-tc">
+        <div class="v3-tc-top orange-top">
+          <div class="v3-tc-av">GR</div>
+          <div>
+            <h4>Ps. Gabriel Retuert Roe</h4>
+            <div class="role">Co-director · Psicólogo</div>
+          </div>
+        </div>
+        <div class="v3-tc-body">
+          <p>Con foco en psicoeducación, acompañamiento docente bajo el Modelo de Amigo Crítico y fortalecimiento de comunidades escolares desde el Modelo Escuela Total.</p>
+        </div>
+      </div>
+    </div>
+    <div class="v3-values-row">
+      <div class="v3-val">
+        <i class="ti ti-arrows-exchange" aria-hidden="true"></i>
+        <h4>Co-responsabilidad</h4>
+        <p>Todos los actores participan activamente del bienestar colectivo.</p>
+      </div>
+      <div class="v3-val">
+        <i class="ti ti-clipboard-check" aria-hidden="true"></i>
+        <h4>Disciplina formativa</h4>
+        <p>Normas que educan y desarrollan al estudiante como persona.</p>
+      </div>
+      <div class="v3-val">
+        <i class="ti ti-home-heart" aria-hidden="true"></i>
+        <h4>Parentalidad formativa</h4>
+        <p>Familias activas y bien orientadas en el proceso educativo.</p>
+      </div>
+      <div class="v3-val">
+        <i class="ti ti-mood-smile" aria-hidden="true"></i>
+        <h4>Contención emocional</h4>
+        <p>Entornos seguros para el desarrollo socioemocional pleno.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="v3-divider-blue"></div>
+
+  <!-- SERVICIOS — azul sólido -->
+  <section class="v3-sec-blue">
+    <div class="v3-sec-label lbl-on-blue">Servicios de asesoría</div>
+    <h2 class="v3-sec-h2 h2-white">Soluciones para cada nivel del ecosistema escolar</h2>
+    <p class="v3-sec-p p-light">Intervenciones adaptadas a las necesidades de colegios, docentes, familias y estudiantes.</p>
+    <div class="v3-svc-grid">
+      <div class="v3-svc-card" onclick="sendPrompt('Asesoría a colegios Psinergia Humana')">
+        <i class="ti ti-school" aria-hidden="true"></i>
+        <h3>Asesoría a colegios</h3>
+        <p>Diagnóstico integral y plan de mejora para convivencia y clima escolar.</p>
+        <div class="v3-svc-link"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver más</div>
+      </div>
+      <div class="v3-svc-card" onclick="sendPrompt('Equipos directivos Psinergia Humana')">
+        <i class="ti ti-briefcase" aria-hidden="true"></i>
+        <h3>Equipos directivos</h3>
+        <p>Liderazgo pedagógico y gestión de la convivencia desde la dirección.</p>
+        <div class="v3-svc-link"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver más</div>
+      </div>
+      <div class="v3-svc-card" onclick="sendPrompt('Profesores y convivencia Psinergia Humana')">
+        <i class="ti ti-users" aria-hidden="true"></i>
+        <h3>Docentes y convivencia</h3>
+        <p>Talleres y asesorías para profesores y encargados de convivencia.</p>
+        <div class="v3-svc-link"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver más</div>
+      </div>
+      <div class="v3-svc-card" onclick="sendPrompt('Padres y apoderados Psinergia Humana')">
+        <i class="ti ti-heart" aria-hidden="true"></i>
+        <h3>Padres y apoderados</h3>
+        <p>Escuelas de familia y orientación en parentalidad y contención emocional.</p>
+        <div class="v3-svc-link"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver más</div>
+      </div>
+      <div class="v3-svc-card" onclick="sendPrompt('Atenciones a estudiantes Psinergia Humana')">
+        <i class="ti ti-star" aria-hidden="true"></i>
+        <h3>Estudiantes</h3>
+        <p>Talleres grupales y atención individual para el bienestar y lo socioemocional.</p>
+        <div class="v3-svc-link"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver más</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATENCIONES PSICOEDUCATIVAS — blanco -->
+  <section class="v3-sec-white">
+    <div class="v3-sec-label lbl-white">Atenciones psicoeducativas</div>
+    <h2 class="v3-sec-h2 h2-dark">Acompañamiento para cada etapa del desarrollo</h2>
+    <p class="v3-sec-p p-muted">Atenciones individuales y grupales enfocadas en el bienestar y el desarrollo socioemocional.</p>
+    <div class="v3-at-grid">
+      <div class="v3-at">
+        <div class="v3-at-hd hd-blue">
+          <i class="ti ti-mood-smile" aria-hidden="true"></i>
+          <h4>Niños y niñas</h4>
+        </div>
+        <div class="v3-at-bd">
+          <ul>
+            <li>Evaluación de habilidades de aprendizaje</li>
+            <li>Dificultades emocionales y conductuales</li>
+            <li>Habilidades socioemocionales</li>
+            <li>Articulación con equipo de aula</li>
+          </ul>
+        </div>
+      </div>
+      <div class="v3-at">
+        <div class="v3-at-hd hd-orange">
+          <i class="ti ti-user" aria-hidden="true"></i>
+          <h4>Adolescentes</h4>
+        </div>
+        <div class="v3-at-bd">
+          <ul>
+            <li>Orientación vocacional y proyecto de vida</li>
+            <li>Manejo del estrés y ansiedad escolar</li>
+            <li>Convivencia e interacciones sociales</li>
+            <li>Intervención en conductas de riesgo</li>
+          </ul>
+        </div>
+      </div>
+      <div class="v3-at">
+        <div class="v3-at-hd hd-teal">
+          <i class="ti ti-users" aria-hidden="true"></i>
+          <h4>Padres y tutores</h4>
+        </div>
+        <div class="v3-at-bd">
+          <ul>
+            <li>Orientación parental y crianza formativa</li>
+            <li>Estrategias de comunicación familiar</li>
+            <li>Contención y autocuidado parental</li>
+            <li>Coordinación con el colegio</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIENTACIONES — naranja sólido -->
+  <section class="v3-sec-orange">
+    <div class="v3-sec-label lbl-on-orange">Enfoque teórico</div>
+    <h2 class="v3-sec-h2 h2-on-orange">Modelos que sustentan nuestra práctica</h2>
+    <div class="v3-orient-grid">
+      <div class="v3-or">
+        <div class="v3-or-num">01</div>
+        <div>
+          <h4>Modelo Escuela Total</h4>
+          <p>Intervención sistémica que involucra a todos los actores de la comunidad escolar como parte de una solución integral y sostenida.</p>
+        </div>
+      </div>
+      <div class="v3-or">
+        <div class="v3-or-num">02</div>
+        <div>
+          <h4>Modelo Amigo Crítico</h4>
+          <p>Acompañamiento docente basado en la confianza y el cuestionamiento constructivo, promoviendo el desarrollo profesional genuino.</p>
+        </div>
+      </div>
+      <div class="v3-or">
+        <div class="v3-or-num">03</div>
+        <div>
+          <h4>Enfoque Comunitario</h4>
+          <p>Las intervenciones se diseñan y ejecutan considerando la comunidad como protagonista y no solo como destinataria.</p>
+        </div>
+      </div>
+      <div class="v3-or">
+        <div class="v3-or-num">04</div>
+        <div>
+          <h4>Enfoque Contextual</h4>
+          <p>Cada escuela tiene su propia historia y realidad. Las propuestas se adaptan al contexto específico de cada institución.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPACITACIÓN Y ACOMPAÑAMIENTO — teal -->
+  <section class="v3-sec-teal">
+    <div class="v3-sec-label lbl-on-teal">Para equipos docentes</div>
+    <h2 class="v3-sec-h2 h2-white">Acompañamiento docente y capacitación</h2>
+    <p class="v3-sec-p p-light">Programas de desarrollo profesional diseñados para fortalecer equipos educativos desde adentro.</p>
+    <div class="v3-cap-grid">
+      <div class="v3-cap-card">
+        <i class="ti ti-device-desktop" aria-hidden="true"></i>
+        <h3>Acompañamiento docente</h3>
+        <p>Mentoría continua en aula bajo el modelo de Amigo Crítico. Observación, retroalimentación y desarrollo de estrategias de convivencia y disciplina formativa.</p>
+        <span class="v3-cap-tag">Presencial</span>
+      </div>
+      <div class="v3-cap-card">
+        <i class="ti ti-certificate" aria-hidden="true"></i>
+        <h3>Capacitación</h3>
+        <p>Talleres presenciales y en línea sobre convivencia escolar, gestión del aula, bienestar docente y psicoeducación. Plataforma Moodle disponible para cursos.</p>
+        <span class="v3-cap-tag">Presencial y online</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTICIAS — blanco -->
+  <section class="v3-sec-white">
+    <div class="v3-sec-label lbl-white">Noticias</div>
+    <h2 class="v3-sec-h2 h2-dark">Recursos y actualidad</h2>
+    <div class="v3-news-grid">
+      <div class="v3-news">
+        <div class="v3-news-bar nb-1"></div>
+        <div class="v3-news-bd">
+          <div class="v3-news-tag">Convivencia</div>
+          <h4>Disciplina formativa: más allá de la sanción</h4>
+          <p>Estrategias para transformar el manejo de normas en oportunidades de aprendizaje real.</p>
+          <div class="v3-news-date"><i class="ti ti-calendar" aria-hidden="true" style="font-size:13px"></i> Junio 2025</div>
+        </div>
+      </div>
+      <div class="v3-news">
+        <div class="v3-news-bar nb-2"></div>
+        <div class="v3-news-bd">
+          <div class="v3-news-tag">Familias</div>
+          <h4>Parentalidad formativa: claves para el diálogo en casa</h4>
+          <p>Recursos prácticos para acompañar el desarrollo de los hijos desde el hogar.</p>
+          <div class="v3-news-date"><i class="ti ti-calendar" aria-hidden="true" style="font-size:13px"></i> Mayo 2025</div>
+        </div>
+      </div>
+      <div class="v3-news">
+        <div class="v3-news-bar nb-3"></div>
+        <div class="v3-news-bd">
+          <div class="v3-news-tag">Psicoeducación</div>
+          <h4>Bienestar docente: herramientas de autocuidado</h4>
+          <p>Programa de contención para profesores en entornos de alta demanda escolar.</p>
+          <div class="v3-news-date"><i class="ti ti-calendar" aria-hidden="true" style="font-size:13px"></i> Abril 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="v3-divider-orange"></div>
+
+  <!-- CONTACTO — azul -->
+  <section class="v3-sec-blue">
+    <div class="v3-sec-label lbl-on-blue">Contacto</div>
+    <h2 class="v3-sec-h2 h2-white">Conversemos sobre tu comunidad educativa</h2>
+    <div class="v3-contact-wrap">
+      <div>
+        <div class="v3-contact-brand">Psinergia <span>Humana</span></div>
+        <p class="v3-contact-desc">Consultora de convivencia y psicoeducación ubicada en La Serena. Atendemos colegios de toda la región con asesorías presenciales y en línea.</p>
+        <div class="v3-socials">
+          <a href="#" class="v3-soc-btn"><i class="ti ti-brand-instagram" aria-hidden="true"></i> Instagram</a>
+          <a href="#" class="v3-soc-btn"><i class="ti ti-brand-facebook" aria-hidden="true"></i> Facebook</a>
+          <a href="#" class="v3-soc-btn"><i class="ti ti-books" aria-hidden="true"></i> Moodle</a>
+        </div>
+      </div>
+      <div class="v3-contact-col">
+        <h5>Contacto directo</h5>
+        <div class="v3-ci">
+          <i class="ti ti-mail" aria-hidden="true"></i>
+          <a href="#">psinergiahumana@gmail.com</a>
+        </div>
+        <div class="v3-ci">
+          <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
+          <span>+56 9 6227 1237<br>+56 9 6222 0850</span>
+        </div>
+        <button class="v3-wa-btn" onclick="sendPrompt('Quiero escribir a Psinergia Humana por WhatsApp')">
+          <i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp
+        </button>
+      </div>
+      <div class="v3-contact-col">
+        <h5>Dirección</h5>
+        <div class="v3-ci">
+          <i class="ti ti-map-pin" aria-hidden="true"></i>
+          <span>Edificio Portal Amunátegui<br>Oficina 314<br>Amunátegui 489, La Serena</span>
+        </div>
+        <div class="v3-ci" style="margin-top:6px">
+          <i class="ti ti-clock" aria-hidden="true"></i>
+          <span>Lunes a viernes<br>9:00 – 18:00 hrs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="v3-footer">
+    <span>© 2025 Psinergia Humana Consultores · La Serena, Chile</span>
+    <span>Convivencia y Psicoeducación</span>
+  </div>
+
+</div>

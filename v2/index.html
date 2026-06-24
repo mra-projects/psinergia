@@ -1,0 +1,692 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+  .v2 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .v2 {
+    font-family: 'Inter', sans-serif;
+    background: #FAFAF7;
+    color: #1C1C1C;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .v2-nav {
+    background: #FAFAF7;
+    border-bottom: 1px solid #E2DEDA;
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .v2-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 700;
+    color: #1C1C1C; letter-spacing: -0.01em;
+  }
+  .v2-brand span { color: #C96B1A; }
+  .v2-brand sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 400;
+    color: #888; letter-spacing: 0.12em;
+    text-transform: uppercase; vertical-align: middle;
+    margin-left: 8px;
+  }
+  .v2-nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .v2-nav-links a {
+    text-decoration: none; font-size: 13px; font-weight: 400;
+    color: #555; letter-spacing: 0.01em;
+  }
+  .v2-nav-links a:hover { color: #C96B1A; }
+  .v2-nav-right { display: flex; gap: 10px; align-items: center; }
+  .v2-btn-ghost {
+    background: none; border: 1px solid #C2B9B0;
+    color: #444; border-radius: 4px;
+    padding: 7px 16px; font-size: 12.5px; font-weight: 500;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .v2-btn-solid {
+    background: #C96B1A; border: none;
+    color: #fff; border-radius: 4px;
+    padding: 8px 18px; font-size: 12.5px; font-weight: 500;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+  }
+
+  .v2-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 420px;
+  }
+  .v2-hero-left {
+    background: #1B3A4B;
+    padding: 4rem 3rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .v2-hero-tag {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #C96B1A;
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .v2-hero-tag::before {
+    content: ''; display: inline-block;
+    width: 24px; height: 1px; background: #C96B1A;
+  }
+  .v2-hero-left h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem; font-weight: 700;
+    color: #fff; line-height: 1.2;
+    margin-bottom: 1.2rem;
+  }
+  .v2-hero-left h1 em {
+    color: #E8A567; font-style: italic;
+  }
+  .v2-hero-left p {
+    font-size: 14px; color: rgba(255,255,255,0.7);
+    line-height: 1.75; margin-bottom: 2rem;
+  }
+  .v2-hero-btns { display: flex; gap: 10px; }
+  .v2-btn-light {
+    background: #fff; color: #1B3A4B;
+    border: none; border-radius: 4px;
+    padding: 10px 20px; font-size: 13px; font-weight: 600;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+  }
+  .v2-btn-outline-w {
+    background: none; color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.35); border-radius: 4px;
+    padding: 10px 20px; font-size: 13px; font-weight: 400;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .v2-hero-right {
+    background: #F0EDE8;
+    padding: 3rem 2.5rem;
+    display: flex; flex-direction: column; justify-content: center; gap: 14px;
+  }
+  .v2-hero-right .tag-line {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #888; margin-bottom: 4px;
+  }
+  .audience-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px;
+    background: #fff; border-radius: 6px;
+    border-left: 3px solid #C96B1A;
+  }
+  .audience-item i { font-size: 18px; color: #C96B1A; }
+  .audience-item span {
+    font-size: 13px; font-weight: 500; color: #2a2a2a;
+  }
+  .audience-item .sub {
+    font-size: 11px; color: #888; font-weight: 400;
+    display: block; margin-top: 1px;
+  }
+
+  .v2-section { padding: 3.5rem 2.5rem; }
+  .v2-section.cream { background: #F5F1EB; }
+  .v2-section.white { background: #fff; }
+  .v2-section.dark { background: #1B3A4B; }
+
+  .v2-section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; color: #C96B1A;
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 0.6rem;
+  }
+  .v2-section-label::before {
+    content: ''; display: inline-block;
+    width: 20px; height: 1px; background: #C96B1A;
+  }
+  .v2-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem; font-weight: 700;
+    color: #1B3A4B; line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .v2-section.dark h2 { color: #fff; }
+  .v2-section p.lead {
+    font-size: 14px; color: #666; line-height: 1.75;
+    max-width: 560px;
+  }
+  .v2-section.dark p.lead { color: rgba(255,255,255,0.65); }
+
+  .v2-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem; margin-top: 2.5rem;
+    align-items: start;
+  }
+
+  .team-block { display: flex; flex-direction: column; gap: 16px; }
+  .v2-team-card {
+    background: #fff;
+    border: 1px solid #E2DEDA; border-radius: 8px;
+    padding: 1.4rem 1.5rem;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .v2-avatar {
+    width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 700; color: #fff;
+  }
+  .av-a { background: #1B3A4B; }
+  .av-b { background: #4A3060; }
+  .v2-team-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; font-weight: 700; color: #1B3A4B;
+    margin-bottom: 3px;
+  }
+  .v2-team-card .role {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #C96B1A; margin-bottom: 8px;
+  }
+  .v2-team-card p { font-size: 12.5px; color: #666; line-height: 1.6; }
+
+  .values-block { display: flex; flex-direction: column; gap: 16px; }
+  .v2-value {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E8E4DF;
+  }
+  .v2-value:last-child { border-bottom: none; padding-bottom: 0; }
+  .v2-value-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700; color: #E2CDB8;
+    line-height: 1; flex-shrink: 0; width: 36px;
+  }
+  .v2-value h4 {
+    font-size: 14px; font-weight: 600; color: #1B3A4B;
+    margin-bottom: 4px;
+  }
+  .v2-value p { font-size: 12.5px; color: #666; line-height: 1.6; }
+
+  .v2-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1px;
+    border: 1px solid #E2DEDA; border-radius: 8px;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+  .v2-svc {
+    background: #fff; padding: 1.5rem 1.4rem;
+    border-right: 1px solid #E2DEDA;
+    cursor: pointer;
+  }
+  .v2-svc:last-child { border-right: none; }
+  .v2-svc:hover { background: #FBF8F4; }
+  .v2-svc-icon {
+    font-size: 22px; color: #C96B1A;
+    margin-bottom: 12px; display: block;
+  }
+  .v2-svc h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 600; color: #1B3A4B;
+    margin-bottom: 6px; line-height: 1.3;
+  }
+  .v2-svc p { font-size: 12px; color: #777; line-height: 1.6; }
+  .v2-svc .arrow {
+    font-size: 12px; color: #C96B1A; margin-top: 10px;
+    display: flex; align-items: center; gap: 4px; font-weight: 500;
+  }
+
+  .v2-atenciones {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 2rem;
+  }
+  .v2-at-card {
+    border-radius: 8px; overflow: hidden;
+    border: 1px solid #E2DEDA;
+  }
+  .v2-at-header {
+    padding: 1rem 1.2rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .ath-1 { background: #EBF3F7; }
+  .ath-2 { background: #FFF4EB; }
+  .ath-3 { background: #F0EBF8; }
+  .v2-at-header i { font-size: 20px; }
+  .ath-1 i { color: #1B5E7B; }
+  .ath-2 i { color: #C96B1A; }
+  .ath-3 i { color: #6B3FA0; }
+  .v2-at-header h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 600;
+    color: #1B3A4B;
+  }
+  .v2-at-body {
+    background: #fff; padding: 1rem 1.2rem;
+  }
+  .v2-at-body ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .v2-at-body li {
+    font-size: 12px; color: #555; line-height: 1.5;
+    display: flex; gap: 7px;
+  }
+  .v2-at-body li::before {
+    content: '—'; color: #C96B1A; flex-shrink: 0; font-size: 11px;
+  }
+
+  .v2-stat-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    margin: 2.5rem 0;
+  }
+  .v2-stat {
+    text-align: center; padding: 1.5rem 1rem;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .v2-stat:last-child { border-right: none; }
+  .v2-stat .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: #E8A567;
+    display: block; margin-bottom: 4px;
+  }
+  .v2-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+  .v2-news-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 2rem;
+  }
+  .v2-news {
+    background: #fff; border: 1px solid #E2DEDA; border-radius: 8px;
+    overflow: hidden;
+  }
+  .v2-news-top {
+    height: 6px;
+  }
+  .nt-1 { background: #1B3A4B; }
+  .nt-2 { background: #C96B1A; }
+  .nt-3 { background: #4A3060; }
+  .v2-news-body { padding: 1.2rem 1.2rem; }
+  .v2-news-tag {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #C96B1A; margin-bottom: 7px;
+  }
+  .v2-news-body h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 600; color: #1B3A4B;
+    line-height: 1.35; margin-bottom: 7px;
+  }
+  .v2-news-body p { font-size: 12px; color: #777; line-height: 1.55; }
+  .v2-news-date {
+    font-size: 11px; color: #aaa; margin-top: 10px;
+    display: flex; align-items: center; gap: 5px;
+  }
+
+  .v2-contact-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2.5rem; margin-top: 2.5rem;
+    align-items: start;
+  }
+  .v2-contact-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700; color: #fff;
+    margin-bottom: 10px;
+  }
+  .v2-contact-brand span { color: #E8A567; }
+  .v2-contact-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+  .v2-contact-socials { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+  .v2-soc {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.8);
+    border-radius: 4px; padding: 5px 12px;
+    font-size: 12px; text-decoration: none;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .v2-contact-col h5 {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #E8A567;
+    margin-bottom: 12px;
+  }
+  .v2-contact-item {
+    display: flex; gap: 8px; align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .v2-contact-item i { font-size: 15px; color: rgba(255,255,255,0.5); flex-shrink: 0; margin-top: 1px; }
+  .v2-contact-item span { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.5; }
+  .v2-contact-item a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 13px; }
+
+  .v2-footer {
+    background: #111E25;
+    padding: 1rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .v2-footer span { font-size: 11.5px; color: rgba(255,255,255,0.35); }
+
+  .v2-wa {
+    background: #25D366;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 18px; border-radius: 4px;
+    font-size: 13px; font-weight: 500;
+    color: #fff; cursor: pointer;
+    border: none; font-family: 'Inter', sans-serif;
+    margin-top: 12px;
+  }
+
+  .divider-ornament {
+    text-align: center; padding: 1rem 0;
+    color: #D4C9BE; font-size: 18px; letter-spacing: 8px;
+  }
+</style>
+
+<h2 class="sr-only">Segunda propuesta de diseño web para Psinergia Humana — estilo editorial cálido</h2>
+
+<div class="v2">
+
+  <nav class="v2-nav">
+    <div class="v2-brand">
+      Psinergia <span>Humana</span>
+      <sub>Consultores</sub>
+    </div>
+    <ul class="v2-nav-links">
+      <li><a href="#">Quiénes somos</a></li>
+      <li><a href="#">Servicios</a></li>
+      <li><a href="#">Atenciones</a></li>
+      <li><a href="#">Capacitación</a></li>
+      <li><a href="#">Noticias</a></li>
+    </ul>
+    <div class="v2-nav-right">
+      <button class="v2-btn-ghost"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> WhatsApp</button>
+      <button class="v2-btn-solid" onclick="sendPrompt('Quiero agendar una asesoría con Psinergia Humana')">Agendar asesoría</button>
+    </div>
+  </nav>
+
+  <div class="v2-hero">
+    <div class="v2-hero-left">
+      <div class="v2-hero-tag">Convivencia y Psicoeducación</div>
+      <h1>El bienestar escolar <em>es una construcción colectiva</em></h1>
+      <p>Acompañamos a comunidades educativas con herramientas concretas para fortalecer la convivencia, la disciplina formativa y el desarrollo socioemocional.</p>
+      <div class="v2-hero-btns">
+        <button class="v2-btn-light" onclick="sendPrompt('Cuéntame sobre los servicios de Psinergia Humana')">Ver servicios</button>
+        <button class="v2-btn-outline-w" onclick="sendPrompt('¿Cómo contactar a Psinergia Humana?')">
+          <i class="ti ti-mail" aria-hidden="true"></i> Contactarnos
+        </button>
+      </div>
+    </div>
+    <div class="v2-hero-right">
+      <div class="tag-line">Trabajamos con</div>
+      <div class="audience-item">
+        <i class="ti ti-school" aria-hidden="true"></i>
+        <div>
+          <span>Colegios y equipos directivos</span>
+          <span class="sub">Diagnóstico y acompañamiento institucional</span>
+        </div>
+      </div>
+      <div class="audience-item">
+        <i class="ti ti-users" aria-hidden="true"></i>
+        <div>
+          <span>Docentes y convivencia</span>
+          <span class="sub">Mentoría, acompañamiento y capacitación</span>
+        </div>
+      </div>
+      <div class="audience-item">
+        <i class="ti ti-home-heart" aria-hidden="true"></i>
+        <div>
+          <span>Padres y apoderados</span>
+          <span class="sub">Parentalidad formativa y escuelas de familia</span>
+        </div>
+      </div>
+      <div class="audience-item">
+        <i class="ti ti-star" aria-hidden="true"></i>
+        <div>
+          <span>Niños, niñas y jóvenes</span>
+          <span class="sub">Atención psicoeducativa individual y grupal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider-ornament">· · ·</div>
+
+  <section class="v2-section white">
+    <div class="v2-section-label">Quiénes somos</div>
+    <h2>Dos psicólogos, una misión</h2>
+    <p class="lead">Llevamos años acompañando comunidades educativas en La Serena y la región, desde un enfoque comunitario, contextual y profundamente humano.</p>
+    <div class="v2-split">
+      <div class="team-block">
+        <div class="v2-team-card">
+          <div class="v2-avatar av-a">XC</div>
+          <div>
+            <h4>Ps. Ximena Catalán Badilla</h4>
+            <div class="role">Co-directora</div>
+            <p>Especializada en convivencia escolar, disciplina formativa y trabajo sistémico con familias y equipos educativos.</p>
+          </div>
+        </div>
+        <div class="v2-team-card">
+          <div class="v2-avatar av-b">GR</div>
+          <div>
+            <h4>Ps. Gabriel Retuert Roe</h4>
+            <div class="role">Co-director</div>
+            <p>Con foco en psicoeducación, acompañamiento docente y fortalecimiento de comunidades escolares desde el Modelo Escuela Total.</p>
+          </div>
+        </div>
+      </div>
+      <div class="values-block">
+        <div class="v2-value">
+          <div class="v2-value-num">01</div>
+          <div>
+            <h4>Co-responsabilidad</h4>
+            <p>Todos los actores de la comunidad son parte activa del bienestar colectivo.</p>
+          </div>
+        </div>
+        <div class="v2-value">
+          <div class="v2-value-num">02</div>
+          <div>
+            <h4>Disciplina formativa</h4>
+            <p>Las normas educan y fortalecen el desarrollo integral cuando son bien aplicadas.</p>
+          </div>
+        </div>
+        <div class="v2-value">
+          <div class="v2-value-num">03</div>
+          <div>
+            <h4>Parentalidad formativa</h4>
+            <p>Familias comprometidas y bien orientadas son el pilar del éxito escolar.</p>
+          </div>
+        </div>
+        <div class="v2-value">
+          <div class="v2-value-num">04</div>
+          <div>
+            <h4>Contención emocional</h4>
+            <p>Entornos seguros donde cada estudiante puede aprender y crecer con confianza.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="v2-section cream">
+    <div class="v2-section-label">Servicios de asesoría</div>
+    <h2>Intervenciones a la medida de cada actor escolar</h2>
+    <div class="v2-services-grid">
+      <div class="v2-svc" onclick="sendPrompt('Cuéntame sobre asesoría a colegios de Psinergia Humana')">
+        <i class="ti ti-school v2-svc-icon" aria-hidden="true"></i>
+        <h3>Asesoría a colegios</h3>
+        <p>Diagnóstico integral y plan de mejora para la convivencia y el clima escolar.</p>
+        <div class="arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver más</div>
+      </div>
+      <div class="v2-svc" onclick="sendPrompt('Asesoría a equipos directivos Psinergia Humana')">
+        <i class="ti ti-briefcase v2-svc-icon" aria-hidden="true"></i>
+        <h3>Equipos directivos</h3>
+        <p>Herramientas de liderazgo pedagógico para gestionar la convivencia desde la dirección.</p>
+        <div class="arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver más</div>
+      </div>
+      <div class="v2-svc" onclick="sendPrompt('Acompañamiento docente Psinergia Humana')">
+        <i class="ti ti-device-desktop v2-svc-icon" aria-hidden="true"></i>
+        <h3>Acompañamiento docente</h3>
+        <p>Mentoría en aula con modelo de Amigo Crítico para el desarrollo profesional docente.</p>
+        <div class="arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver más</div>
+      </div>
+      <div class="v2-svc" onclick="sendPrompt('Trabajo con padres y apoderados Psinergia Humana')">
+        <i class="ti ti-home-heart v2-svc-icon" aria-hidden="true"></i>
+        <h3>Padres y apoderados</h3>
+        <p>Escuelas para familias y talleres de parentalidad formativa y contención emocional.</p>
+        <div class="arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver más</div>
+      </div>
+      <div class="v2-svc" onclick="sendPrompt('Capacitación docente Psinergia Humana')">
+        <i class="ti ti-certificate v2-svc-icon" aria-hidden="true"></i>
+        <h3>Capacitación</h3>
+        <p>Talleres presenciales y en línea sobre convivencia, bienestar docente y psicoeducación.</p>
+        <div class="arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ver más</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="v2-section white">
+    <div class="v2-section-label">Atenciones psicoeducativas</div>
+    <h2>Acompañamiento para cada etapa</h2>
+    <p class="lead">Atenciones individuales y grupales orientadas al bienestar y el desarrollo socioemocional.</p>
+    <div class="v2-atenciones">
+      <div class="v2-at-card">
+        <div class="v2-at-header ath-1">
+          <i class="ti ti-mood-smile" aria-hidden="true"></i>
+          <h4>Niños y niñas</h4>
+        </div>
+        <div class="v2-at-body">
+          <ul>
+            <li>Evaluación de habilidades de aprendizaje</li>
+            <li>Dificultades emocionales y conductuales</li>
+            <li>Talleres de habilidades socioemocionales</li>
+            <li>Articulación con equipo de aula</li>
+          </ul>
+        </div>
+      </div>
+      <div class="v2-at-card">
+        <div class="v2-at-header ath-2">
+          <i class="ti ti-user" aria-hidden="true"></i>
+          <h4>Adolescentes</h4>
+        </div>
+        <div class="v2-at-body">
+          <ul>
+            <li>Orientación vocacional y proyecto de vida</li>
+            <li>Manejo del estrés y ansiedad escolar</li>
+            <li>Convivencia y relaciones interpersonales</li>
+            <li>Intervención en conductas de riesgo</li>
+          </ul>
+        </div>
+      </div>
+      <div class="v2-at-card">
+        <div class="v2-at-header ath-3">
+          <i class="ti ti-users" aria-hidden="true"></i>
+          <h4>Padres y tutores</h4>
+        </div>
+        <div class="v2-at-body">
+          <ul>
+            <li>Orientación parental y crianza formativa</li>
+            <li>Estrategias de comunicación familiar</li>
+            <li>Contención y autocuidado parental</li>
+            <li>Coordinación con el colegio</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="v2-section dark">
+    <div class="v2-section-label">Nuestro enfoque</div>
+    <h2>Orientaciones teóricas</h2>
+    <div class="v2-stat-row">
+      <div class="v2-stat">
+        <span class="num">ET</span>
+        <span class="lbl">Modelo Escuela Total</span>
+      </div>
+      <div class="v2-stat">
+        <span class="num">AC</span>
+        <span class="lbl">Amigo Crítico</span>
+      </div>
+      <div class="v2-stat">
+        <span class="num">EC</span>
+        <span class="lbl">Enfoque Comunitario</span>
+      </div>
+      <div class="v2-stat">
+        <span class="num">EX</span>
+        <span class="lbl">Enfoque Contextual</span>
+      </div>
+    </div>
+    <p class="lead">Nuestras intervenciones se sustentan en modelos con evidencia en el contexto educativo chileno, adaptados a la realidad de cada comunidad escolar.</p>
+  </section>
+
+  <section class="v2-section cream">
+    <div class="v2-section-label">Noticias</div>
+    <h2>Recursos y actualidad</h2>
+    <div class="v2-news-grid">
+      <div class="v2-news">
+        <div class="v2-news-top nt-1"></div>
+        <div class="v2-news-body">
+          <div class="v2-news-tag">Convivencia</div>
+          <h4>Disciplina formativa: más allá de la sanción</h4>
+          <p>Cómo transformar el manejo de normas en oportunidades de aprendizaje real.</p>
+          <div class="v2-news-date"><i class="ti ti-calendar" aria-hidden="true" style="font-size:13px"></i> Junio 2025</div>
+        </div>
+      </div>
+      <div class="v2-news">
+        <div class="v2-news-top nt-2"></div>
+        <div class="v2-news-body">
+          <div class="v2-news-tag">Familias</div>
+          <h4>Parentalidad formativa: claves para el diálogo en casa</h4>
+          <p>Recursos prácticos para que las familias acompañen el desarrollo de sus hijos.</p>
+          <div class="v2-news-date"><i class="ti ti-calendar" aria-hidden="true" style="font-size:13px"></i> Mayo 2025</div>
+        </div>
+      </div>
+      <div class="v2-news">
+        <div class="v2-news-top nt-3"></div>
+        <div class="v2-news-body">
+          <div class="v2-news-tag">Psicoeducación</div>
+          <h4>Bienestar docente: herramientas de autocuidado</h4>
+          <p>Programa de contención para profesores en entornos de alta demanda.</p>
+          <div class="v2-news-date"><i class="ti ti-calendar" aria-hidden="true" style="font-size:13px"></i> Abril 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="v2-section dark">
+    <div class="v2-contact-grid">
+      <div>
+        <div class="v2-contact-brand">Psinergia <span>Humana</span></div>
+        <p class="v2-contact-desc">Consultora de convivencia y psicoeducación. Edificio Portal Amunátegui, Oficina 314, La Serena.</p>
+        <div class="v2-contact-socials">
+          <a href="#" class="v2-soc"><i class="ti ti-brand-instagram" aria-hidden="true"></i> Instagram</a>
+          <a href="#" class="v2-soc"><i class="ti ti-brand-facebook" aria-hidden="true"></i> Facebook</a>
+          <a href="#" class="v2-soc"><i class="ti ti-books" aria-hidden="true"></i> Moodle</a>
+        </div>
+      </div>
+      <div class="v2-contact-col">
+        <h5>Contacto</h5>
+        <div class="v2-contact-item">
+          <i class="ti ti-mail" aria-hidden="true"></i>
+          <a href="#">psinergiahumana@gmail.com</a>
+        </div>
+        <div class="v2-contact-item">
+          <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
+          <span>+56 9 6227 1237<br>+56 9 6222 0850</span>
+        </div>
+        <button class="v2-wa" onclick="sendPrompt('Quiero escribir a Psinergia Humana por WhatsApp')">
+          <i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp
+        </button>
+      </div>
+      <div class="v2-contact-col">
+        <h5>Dirección</h5>
+        <div class="v2-contact-item">
+          <i class="ti ti-map-pin" aria-hidden="true"></i>
+          <span>Edificio Portal Amunátegui<br>Oficina 314, Amunátegui 489<br>La Serena, Chile</span>
+        </div>
+        <div class="v2-contact-item" style="margin-top:12px">
+          <i class="ti ti-clock" aria-hidden="true"></i>
+          <span>Lunes a viernes<br>9:00 – 18:00 hrs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="v2-footer">
+    <span>© 2025 Psinergia Humana Consultores · La Serena, Chile</span>
+    <span>Convivencia y Psicoeducación</span>
+  </div>
+
+</div>
